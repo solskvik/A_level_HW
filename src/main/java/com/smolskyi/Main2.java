@@ -1,23 +1,24 @@
 package com.smolskyi;
-
+import java.util.Scanner;
 public class Main2 {
     public static void main (String [] args) {
-        double a;
+        Scanner s1= new Scanner(System.in);
 
-        a = triangleArea(3, 3, 3);
-        System.out.println("Площа трикутника " + a);
+        System.out.println("Ввести розмір першої сторони:");
+        int a= s1.nextInt ();
 
-        a = triangleArea(3, 4, 5);
-        System.out.println("Площа трикутника " + a);
+        System.out.println("Ввести розмір другої сторони:");
+        int b= s1.nextInt();
 
-        a = triangleArea(9, 9, 9);
-        System.out.println("Площа трикутника " + a );
-
+        System.out.println("Ввести розмір третьої сторони:");
+        int c= s1.nextInt ();
+        if((a+b)>c && (a+c)>b && (b+c)>a)
+        {
+            int s=(a+b+c)/2;
+            double  area=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+            System.out.println("Площа трикутника: " + area);
+        }
+        else
+            System.out.println("Площа треектника не рахується");
     }
-    public static double triangleArea( int a, int b, int c )
-    {
-        double s=(((a+b+c)/2.0)*((a+b+c)/2.0-a)*((a+b+c)/2.0-b)*((a+b+c)/2.0-c));
-        return Math.sqrt(s);
-    }
-
 }
